@@ -65,17 +65,17 @@ RSpec.describe Item, type: :model do
       it 'priceが299以下では登録できない' do
         @item.price = '299'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price Please input a price between 300 and 9999999")
+        expect(@item.errors.full_messages).to include('Price Please input a price between 300 and 9999999')
       end
       it 'priceが9999999より上では登録できない' do
         @item.price = '10000000'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price Please input a price between 300 and 9999999")
+        expect(@item.errors.full_messages).to include('Price Please input a price between 300 and 9999999')
       end
       it 'priceが半角数値でないと登録できない' do
         @item.price = 'アイウエオ'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price Please input a price between 300 and 9999999")
+        expect(@item.errors.full_messages).to include('Price Please input a price between 300 and 9999999')
       end
     end
   end
